@@ -50,4 +50,4 @@ console.log("FUNCTION-CONVERSION.JS STRETCH GOALS: ")
 exampleArray = [1,2,3,4];
 triple = (arr) => (arr.map(mult = (num) => num * 3));
 
-console.log(triple);
+console.log(triple(exampleArray));
