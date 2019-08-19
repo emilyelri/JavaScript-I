@@ -103,6 +103,9 @@ console.log(ant.multiplyNums(3,4));
 
 // === Great work! === Head over to the the arrays.js. You may come back and attempt the Stretch Challenge once you have completed the challenges in arrays.js and function-conversion.js.
 
+console.log("--------------------");
+console.log("OBJECTS.JS STRETCH GOALS: ")
+
 // ==== Stretch Challenge: Nested Objects and the this keyword ==== 
 
 // 1. Create a parent object with properties for name and age.  Make the name Susan and the age 70.
@@ -110,16 +113,47 @@ console.log(ant.multiplyNums(3,4));
 // 3. Nest a grandchild object in the child object with properties for name and age.  The name will be Sam and the age will be 30
 // 4. Give each of the objects the ability to speak their names using the this keyword.
 
-const parent = {}
+const parent = {
+  name: 'Susan',
+  age: 70,
+  speak: "Hi, I'm  " + this.name,
+  child: {
+    name: 'George',
+    age: 50,
+    speak: "Hi, I'm " + this.name,
+    grandchild: {
+      name: 'Sam',
+      age: 30,
+      speak: "Hi, I'm " + this.name
+    }
+  }
+}
+
+function speak(obj) {
+  this.name = obj.name;
+  return "Hi, I'm " + this.name + ".";
+}
 
 // Log the parent object's name
 
+console.log(parent.name);
+
 // Log the child's age
+
+console.log(parent.child.age);
 
 // Log the name and age of the grandchild
 
+console.log(parent.child.grandchild.name + " " + parent.child.grandchild.age)
+
 // Have the parent speak
+
+console.log(speak(parent));
 
 // Have the child speak
 
+console.log(speak(parent.child));
+
 // Have the grandchild speak
+
+console.log(speak(parent.child.grandchild));
